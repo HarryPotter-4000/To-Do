@@ -116,11 +116,10 @@ html {
 .item__info {
   display: flex;
   flex-direction: column;
-  width: 65%;
+  width: 70%;
 }
 .item__checked {
   width: 5%;
-  margin-right: 16px;
   transform: scale(1.5);
   opacity: 0.9;
   cursor: pointer;
@@ -196,15 +195,18 @@ html {
   background-color: #a3b6e3;
 }
 @media (max-width: 601px) {
-  html {
+  /* html {
     height: auto;
-  }
+  } */
   .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 350px;
     padding: 48px 12px 0;
+  }
+  .add__box {
+    margin-bottom: 16px;
   }
   .add__form {
     display: flex;

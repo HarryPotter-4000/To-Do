@@ -1,6 +1,7 @@
 import { Component } from "react";
 import AddTask from "./AddTask";
 import Task from "./Task";
+import { getFormattedCurrentDate } from "./util";
 import { load, save } from "./storage";
 
 class App extends Component {
@@ -18,14 +19,7 @@ class App extends Component {
   onTaskCreate = (name, description) => {
     const { tasks } = this.state;
     const id = Date.now();
-    let day = new Date().toLocaleDateString();
-    let dateNow = new Date(),
-      hour = dateNow.getHours(),
-      minute = dateNow.getMinutes();
-    minute = minute < 10 ? "0" + minute : minute;
-    hour = hour < 10 ? "0" + hour : hour;
-
-    const time = `${day} / ${hour}:${minute}`;
+    const time = getFormattedCurrentDate();
     tasks.unshift({
       id,
       name,
@@ -40,9 +34,16 @@ class App extends Component {
 
   onTaskCheck = (id) => {
     const { tasks } = this.state;
-    for (const task of tasks) {
-      if (task.id === id) {
-        task.isChecked = !task.isChecked;
+    for (let i = 0; i < tasks.length; i++) {
+      if (tasks[i].id === id) {
+        const [found] = tasks.splice(i, 1);
+        found.isChecked = !found.isChecked;
+        found.time = getFormattedCurrentDate();
+        if (found.isChecked) {
+          tasks.push(found);
+        } else {
+          tasks.unshift(found);
+        }
         break;
       }
     }
@@ -66,17 +67,9 @@ class App extends Component {
 
   onTaskEdit = (id, name, description) => {
     const { tasks } = this.state;
-    let day = new Date().toLocaleDateString();
-    let dateNow = new Date(),
-      hour = dateNow.getHours(),
-      minute = dateNow.getMinutes();
-    minute = minute < 10 ? "0" + minute : minute;
-    hour = hour < 10 ? "0" + hour : hour;
-    const time = `${day} / ${hour}:${minute}`;
-
     for (const task of tasks) {
       if (task.id === id) {
-        task.time = time;
+        task.time = getFormattedCurrentDate();
         task.name = name;
         task.description = description;
         break;
