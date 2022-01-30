@@ -1,4 +1,4 @@
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 
 export default function Task(props) {
   const { name, description, time, isChecked, id, onCheck, onDelete, onEdit } =
