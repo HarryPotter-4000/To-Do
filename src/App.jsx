@@ -18,7 +18,14 @@ class App extends Component {
   onTaskCreate = (name, description) => {
     const { tasks } = this.state;
     const id = Date.now();
-    const time = new Date().toISOString().substring(0, 19).replace("T", " / ");
+    let day = new Date().toLocaleDateString();
+    let dateNow = new Date(),
+      hour = dateNow.getHours(),
+      minute = dateNow.getMinutes();
+    minute = minute < 10 ? "0" + minute : minute;
+    hour = hour < 10 ? "0" + hour : hour;
+
+    const time = `${day} / ${hour}:${minute}`;
     tasks.unshift({
       id,
       name,
@@ -59,8 +66,17 @@ class App extends Component {
 
   onTaskEdit = (id, name, description) => {
     const { tasks } = this.state;
+    let day = new Date().toLocaleDateString();
+    let dateNow = new Date(),
+      hour = dateNow.getHours(),
+      minute = dateNow.getMinutes();
+    minute = minute < 10 ? "0" + minute : minute;
+    hour = hour < 10 ? "0" + hour : hour;
+    const time = `${day} / ${hour}:${minute}`;
+
     for (const task of tasks) {
       if (task.id === id) {
+        task.time = time;
         task.name = name;
         task.description = description;
         break;
