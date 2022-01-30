@@ -8,6 +8,7 @@
   outline: none;
 }
 html {
+  height: 100%;
   background: -webkit-linear-gradient(
     45deg,
     rgb(224, 208, 236) 25%,
@@ -26,7 +27,7 @@ html {
     rgb(177, 219, 249),
     rgb(98, 184, 246) 100%
   );
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 #root {
@@ -195,6 +196,9 @@ html {
   background-color: #a3b6e3;
 }
 @media (max-width: 601px) {
+  html {
+    height: auto;
+  }
   .container {
     display: flex;
     flex-direction: column;
