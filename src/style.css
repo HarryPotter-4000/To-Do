@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  outline: none;
+}
+html {
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(224, 208, 236) 25%,
+    rgb(177, 219, 249),
+    rgb(98, 184, 246) 100%
+  );
+  background: -moz-linear-gradient(
+    45deg,
+    rgb(224, 208, 236) 25%,
+    rgb(177, 219, 249),
+    rgb(98, 184, 246) 100%
+  );
+  background: linear-gradient(
+    45deg,
+    rgb(224, 208, 236) 25%,
+    rgb(177, 219, 249),
+    rgb(98, 184, 246) 100%
+  );
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+#root {
+  display: flex;
+  justify-content: center;
+  font-family: Roboto;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 800px;
+  padding: 48px;
+}
+/* Add Task Form */
+.add__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.add__form {
+  display: flex;
+  justify-content: space-between;
+  width: 600px;
+  margin-bottom: 16px;
+}
+.form__text {
+  width: 100%;
+  padding: 12px;
+  border: transparent;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #122262;
+  background-color: #f0f6faa1;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.form__text:hover {
+  box-shadow: 0 0 1rem 0 rgba(148, 143, 143, 0.2);
+}
+.form__text:focus {
+  background-color: #fffffff1;
+  outline: none;
+}
+.add__name {
+  margin-right: 16px;
+}
+.add__button {
+  display: inline;
+  padding: 12px 24px;
+  border: transparent;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #232936;
+  background: linear-gradient(45deg, rgb(241, 244, 139), rgb(227, 184, 50));
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.add__button:hover {
+  background: rgb(230, 188, 64);
+  box-shadow: 0 0 1rem 0 rgba(148, 143, 143, 0.2);
+  cursor: pointer;
+}
+/* Task */
+.item__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 600px;
+}
+.item__box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  border: transparent;
+  border-radius: 5px;
+  background-color: #f0f6fa83;
+  box-shadow: 0 0 1rem 0 rgba(41, 39, 39, 0.2);
+}
+.item__box:hover {
+  box-shadow: 0 0 1rem 0 rgba(148, 143, 143, 0.2);
+}
+.item__info {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+}
+.item__checked {
+  width: 5%;
+  margin-right: 16px;
+  transform: scale(1.5);
+  opacity: 0.9;
+  cursor: pointer;
+}
+.item__time {
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #155e96;
+  font-style: italic;
+}
+.item__name {
+  margin-bottom: 8px;
+  font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #232936;
+  font-weight: bold;
+}
+.item__description {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #155e96;
+}
+.item__done {
+  margin-bottom: 8px;
+  font-size: 18px;
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+/* Edit Task Form */
+.edit__box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+.edit__inputs {
+  width: 75%;
+  margin-right: 16px;
+  padding: 8px 0;
+}
+.edit__name {
+  margin-bottom: 8px;
+}
+.change__button {
+  display: inline;
+  padding: 8px 6px;
+  border: transparent;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f0f6fae1;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.edit {
+  margin-right: 8px;
+}
+.edit:hover {
+  background: #fff1bc;
+}
+.delete:hover {
+  background-color: #fca8a5;
+}
+.save {
+  margin-right: 8px;
+}
+.save:hover {
+  margin-right: 8px;
+  background-color: #c9faeb;
+}
+.cancel:hover {
+  background-color: #a3b6e3;
+}
+@media (max-width: 601px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    padding: 48px 12px 0;
+  }
+  .add__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 320px;
+    margin-bottom: 16px;
+  }
+  .add__name {
+    margin: 0 0 16px;
+  }
+  .item__list {
+    width: 320px;
+  }
+  .item__box {
+    padding: 16px 8px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .item__checked {
+    width: 10%;
+    margin-right: 8px;
+    transform: scale(1.5);
+    opacity: 0.9;
+    cursor: pointer;
+  }
+  .item__info {
+    display: flex;
+    flex-direction: column;
+    margin-right: 8px;
+  }
+  .item__change {
+    width: 20%;
+  }
+  .edit {
+    width: 56px;
+    margin: 0 0 8px;
+  }
+  .delete {
+    width: 56px;
+  }
+  .edit__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .edit__inputs {
+    width: 100%;
+    margin-right: 8px;
+    padding: 8px 0;
+  }
+  .change__buttons {
+    width: 20%;
+  }
+  .save {
+    width: 60px;
+    margin: 0 0 8px;
+  }
+  .cancel {
+    width: 60px;
+  }
+}
